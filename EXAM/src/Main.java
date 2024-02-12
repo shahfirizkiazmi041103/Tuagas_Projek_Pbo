@@ -11,7 +11,7 @@ class OnlineTest extends JFrame implements ActionListener {
     int m[] = new int[20];
     Timer timer;
 
-    // Array to store user's answers
+    
     char userAnswers[] = new char[20];
 
     OnlineTest(String s) {
@@ -33,13 +33,13 @@ class OnlineTest extends JFrame implements ActionListener {
         add(b2);
         set();
 
-        // Adding timer
+        
         timerLabel = new JLabel();
         timerLabel.setBounds(450, 20, 100, 30);
         add(timerLabel);
         int delay = 1000;
         ActionListener taskPerformer = new ActionListener() {
-            int timeRemaining = 600; // 10 minutes
+            int timeRemaining = 600; 
 
             public void actionPerformed(ActionEvent evt) {
                 if (timeRemaining > 0) {
@@ -70,7 +70,7 @@ class OnlineTest extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == b1) {
-            // Saving user's answer
+            
             saveAnswer();
 
             if (check())
@@ -98,7 +98,7 @@ class OnlineTest extends JFrame implements ActionListener {
         }
         for (int i = 0, y = 1; i < x; i++, y++) {
             if (e.getActionCommand().equals("Bookmark" + y)) {
-                // Saving user's answer
+            
                 saveAnswer();
 
                 if (check())
@@ -112,7 +112,7 @@ class OnlineTest extends JFrame implements ActionListener {
         }
 
         if (e.getActionCommand().equals("Result")) {
-            // Saving user's answer for the last question
+            
             saveAnswer();
 
             if (check())
@@ -270,7 +270,7 @@ class OnlineTest extends JFrame implements ActionListener {
         for(int i=0,j=0;i<=90;i+=30,j++)
             jb[j].setBounds(50,80+i,350,20);
 
-        // Set other questions...
+        
     }
 
     boolean check() {
@@ -318,7 +318,7 @@ class OnlineTest extends JFrame implements ActionListener {
         return false;
     }
 
-    // Save user's answer for the current question
+    
     void saveAnswer() {
         if (current >= 0 && current < 20) {
             if (jb[0].isSelected()) {
@@ -330,21 +330,21 @@ class OnlineTest extends JFrame implements ActionListener {
             } else if (jb[3].isSelected()) {
                 userAnswers[current] = 'D';
             } else {
-                userAnswers[current] = ' '; // No answer selected
+                userAnswers[current] = ' '; 
             }
         }
     }
 
-    // Display result and correct answers
+    
     void endTest() {
         int totalQuestions = 20;
         int score = count;
         StringBuilder message = new StringBuilder("Total benar = ").append(score).append("\n");
         message.append("Poin yang didapatkan = ").append(score * 5).append("\n\n");
         message.append("Jawaban yang benar:\n");
-        // Correct answers
+        
         char[] correctAnswers = {'A', 'A', 'C', 'C', 'C', 'B', 'C', 'B', 'B', 'C', 'C', 'A', 'A', 'A', 'B', 'B', 'C', 'C', 'A', 'D'};
-        // Display user's answers and correct answers
+
         for (int i = 0; i < totalQuestions; i++) {
             message.append("Soal ").append(i + 1).append(": ");
             message.append("Jawaban Anda: ").append(userAnswers[i]).append(", Jawaban Benar: ").append(correctAnswers[i]);
